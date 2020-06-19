@@ -1,0 +1,11 @@
+org.jaxen
+org.jaxen.dom
+org.jaxen.dom4j
+org.jaxen.exml
+org.jaxen.expr
+org.jaxen.expr.iter
+org.jaxen.function
+org.jaxen.function.ext
+org.jaxen.jdom
+org.jaxen.pattern
+org.jaxen.util

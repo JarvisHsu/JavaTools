@@ -1,0 +1,413 @@
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type">
+<META NAME="Keywords" CONTENT="DOM4J, XML, Java, XML and Java, Open Source, 
+            XML software, Java software, XML API, Java API, XML parser, 
+            DOM, Document Object Model, SAX, XML Library, XPath, 
+            Java 2 Collections
+        ">
+<META NAME="Description" CONTENT="DOM4J is an Open Source XML framework 
+            for the Java Platform that combines the best of DOM and SAX 
+            together with integrated  XPath and Java 2 Collections support
+        ">
+<META NAME="Copyright" CONTENT="(c) 2001 MetaStuff Ltd.">
+<title>Status</title>
+<link href="default.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top">
+<links>
+    
+<table width="100%">
+      
+<tr>
+        
+<td align="left" valign="center">
+          <a href="index.html"><img src="style/images/logo.gif" border="0" alt="jaxen"></a>
+        </td>
+        <td>
+<br>
+</td>
+        <td align="right" valign="center">
+          <font size="2">
+            <a href="faq.html">FAQ</a> 
+            | <a href="apidocs/index.html">JavaDoc</a> 
+            | <a href="download.html">download</a>
+            | <a href="status.html">status</a> 
+            | <a href="http://sourceforge.net/projects/jaxen/">project page</a>
+          </font>
+        </td>
+      
+</tr>
+    
+</table>
+  
+</links>
+<hr>
+</td>
+</tr>
+<tr>
+<td>
+<h1>Status</h1>
+</td>
+</tr>
+<tr>
+<td><small><a href="#Change%20History">Change History</a>
+<br>
+</small><small>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#Changes%20in%20CVS%20since%20last%20release">Changes in CVS since last release</a>
+<br>
+</small><small>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#Jaxen%201.0%20RC1">Jaxen 1.0 RC1</a>
+<br>
+</small><small>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#Jaxen%201.0%20beta%208">Jaxen 1.0 beta 8</a>
+<br>
+</small><small><a href="#To%20Do%20List">To Do List</a>
+<br>
+</small><small><a href="#Known%20problems">Known problems</a>
+<br>
+</small><small><a href="#Contributors">Contributors</a>
+<br>
+</small>
+<br>
+<a name="Change%20History">
+<h2>Change History</h2>
+</a>
+<blockquote>
+      
+<a name="Changes%20in%20CVS%20since%20last%20release">
+<h3>Changes in CVS since last release</h3>
+</a>
+<blockquote>
+      
+</blockquote>
+      
+      
+<a name="Jaxen%201.0%20RC1">
+<h3>Jaxen 1.0 RC1</h3>
+</a>
+<blockquote>
+        
+<p>There is now an XPath interface in the org.jaxen package to represent any XPath implementation.
+          So this means that the XPath API of Jaxen is now polymorphic, the same interface can work with 
+          any model.
+        <br>
+</p>
+        
+<p>
+           This now means that the org.jaxen.* package represents a purely interface based API to any XPath
+           engine. So it should be possible to implement XPath, FunctionContext, NamespaceContext, VariableContext
+           on any XPath engine if so desired.
+        <br>
+</p>
+        
+<p>The XPath implementation for each model has now got a fully qualified class name. 
+          The following code describes how to instantiate an XPath object for each model.
+<pre>
+// for DOM
+XPath xpath = new DOMXPath( "//foo" );
+
+// for dom4j
+XPath xpath = new Dom4jXPath( "//foo" );
+
+// for Electric XML
+XPath xpath = new ElectricXPath( "//foo" );
+
+// for JDOM
+XPath xpath = new JDOMXPath( "//foo" );
+</pre>
+        
+<br>
+</p>
+        
+<p>The XPath.valueOf() method is now deprecated, XPath.stringValueOf() should be used instead.
+        <br>
+</p>
+        
+<p>Added new extension functions kindly provided by Mark Wilson. They are as follows...
+          <table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td height="5" colspan="2"></td>
+</tr>
+            
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">upper-case() - converts the first argument to an upper case string using either the default Locale or the Locale specified by the second parameter</td>
+</tr>
+            
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">lower-case() - converts the first argument to a lower case string using either the default Locale or the Locale specified by the second parameter</td>
+</tr>
+            
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">ends-with() - evaluates true if the first string ends with the postfix</td>
+</tr>
+          
+</table>
+          
+<p>Locales can be specified either using a variable which is a Locale object or using an xml:lang style string
+            which specifies the Locale via a language together with an optional country and variant such as 'fr', 'fr-CA' or 'es-ES-Traditional_WIN'.
+            e.g.
+          <br>
+</p>
+
+<pre>
+upper-case( @foo, $myLocale )
+upper-case( /foo/bar, 'fr' )
+lower-case( foo, 'fr-CA' )
+upper-case( @foo, 'es-ES-Traditional_WIN' )
+</pre>
+        
+<br>
+</p>
+        
+<p>The translate() function is now implemented - thanks to Jan for that!
+        <br>
+</p>
+        
+<p>Some auxillary implementation detail changes, which shouldn't affect the public API in any way are as follows
+          <table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td height="5" colspan="2"></td>
+</tr>
+            
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">The org.jaxen.JaXPath class has been removed. Now we have an org.jaxen.XPath interface its no longer required.</td>
+</tr>
+            
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">The org.jaxen.expr.XPath class has been renamed to org.jaxen.expr.XPathExpr to avoid confusion and to use a more consistent name.
+            Similarly the DefaultXPath class has been renamed to DefaultXPathExpr as well.</td>
+</tr>
+            
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">The very confusing jaSelect*() methods have gone from JaXPath and BaseXPath. All evaluation methods can take a Context object, null, a node or a node set.</td>
+</tr>
+          
+</table>
+        
+<br>
+</p>
+       
+</blockquote>
+       
+      
+<a name="Jaxen%201.0%20beta%208">
+<h3>Jaxen 1.0 beta 8</h3>
+</a>
+<blockquote>
+        
+<p>
+          Initial beta development cycle.  Please see
+          CVS changelogs for up-to-date list of changes.
+        <br>
+</p>
+       
+</blockquote>
+    
+</blockquote>
+<a name="To%20Do%20List">
+<h2>To Do List</h2>
+</a>
+<blockquote>
+      
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td height="5" colspan="2"></td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Implement a GenericXPath which could use reflection on the nodes passed into it to
+          choose the Navigator to use. So the same GenericXPath instance could be used
+          to evaluate XPaths on any object. This feature would be particularly useful
+          in <a href="http://jakarta.apache.org/taglibs/doc/standard-doc/intro.html">JSTL</a> 
+          since it would allow web developers to mix and match any
+          all XML models.
+        </td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">While already Jaxen is pretty 
+        <a href="http://dom4j.org/benchmarks/xpath/index.html">fast</a>
+        but we are sure it could use some more tuning.
+        </td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">selectSingleNode() and possibly the *ValueOf() methods should be return-fast
+          as a performance improvement.
+          For example selectSingleNode( "//foo" ) on a document with lots of &lt;foo/&gt;
+          elements would actually create a full nodeset of results then extract the first
+          element - rather than just returning as soon as the first one is found.
+        </td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Better user guides and examples!
+        </td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Any Locale sepecific functions, such as <code>upper-case()</code> 
+          and <code>lowercase-case()</code> could well follow the example of
+          <a href="http://www.w3.org/TR/xquery-operators/#func-upper-case">XSLT 2.0</a>
+          by using the <a href="http://www.unicode.org/unicode/reports/tr21/">Unicode case mappings</a>
+        </td>
+</tr>
+      
+</table>
+    
+</blockquote>
+<a name="Known%20problems">
+<h2>Known problems</h2>
+</a>
+<blockquote>    
+      
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td height="5" colspan="2"></td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">The <code>format-number()</code> XPath function needs implementing. Any volunteers?
+        </td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left"><code>id()</code> function not implemented for most models.</td>
+</tr>
+      
+</table>
+    
+</blockquote>
+<a name="Contributors">
+<h2>Contributors</h2>
+</a>
+<blockquote>    
+      
+<p>The following people have contributed to the Jaxen project. 
+      Many thanks to you all!<br>
+</p>
+      
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td height="5" colspan="2"></td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Bob McWhirter (<a href="http://code.werken.com/">The Werken Company</a>)</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left"><a href="http://www.apache.org/~jstrachan/">James Strachan</a> (<a href="http://www.spiritsoft.com">SpiritSoft</a>)</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">David Megginson (<a href="http://megginson.com/">Megginson Technologies</a>)</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Erwin Bolwidt</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">David Peterson</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Mark A. Belonga</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Christian Nentwich</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Alexander Day Chaffee (<a href="http://www.purpletech.com">Purple Technology</a>)</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Elliotte Rusty Harold (<a href="http://www.cafeconleche.org">Cafe con Leche</a>)</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Mark Wilson (<a href="http://www.wilsoncom.de">WilsonCon</a>)</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Jan Dvorak</td>
+</tr>
+        
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">J&eacute;r&ocirc;me N&egrave;gre (<a href="http://e-xmlmedia.com">e-xmlmedia.com</a>)</td>
+</tr>
+      
+</table>
+    
+</blockquote>
+<br>
+<hr>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<links>
+    
+<table width="100%">
+      
+<tr>
+        
+<td align="left" valign="center">
+          <a href="index.html"><img src="style/images/logo.gif" border="0" alt="jaxen"></a>
+        </td>
+        <td>
+<br>
+</td>
+        <td align="right" valign="center">
+          <font size="2">
+            <a href="faq.html">FAQ</a> 
+            | <a href="apidocs/index.html">JavaDoc</a> 
+            | <a href="download.html">download</a>
+            | <a href="status.html">status</a> 
+            | <a href="http://sourceforge.net/projects/jaxen/">project page</a>
+          </font>
+        </td>
+      
+</tr>
+    
+</table>
+  
+</links>
+<hr>
+</td>
+</tr>
+<tr>
+<td align="center"><small>
+<notice>
+    Copyright 2001 (C) bob mcwhirter &amp; James Strachan. All rights reserved. Hosted by SourceForge <br>
+    
+<table cellspacing="10" align="Center" valign="Center">
+    
+<tr>
+    
+<td valign="Center">
+    <a href="http://sourceforge.net/"><img src="http://sourceforge.net/sflogo.php?group_id=31477" width="88" height="31" border="0" alt="SourceForge Logo"></a>
+    </td>
+    
+</tr>
+    
+</table>
+  
+</notice>
+<br>&nbsp;<br>
+</small></td>
+</tr>
+</table>
+</body>
+</html>

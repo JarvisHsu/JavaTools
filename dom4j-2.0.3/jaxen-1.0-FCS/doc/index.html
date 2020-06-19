@@ -1,0 +1,252 @@
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type">
+<META NAME="Keywords" CONTENT="DOM4J, XML, Java, XML and Java, Open Source, 
+            XML software, Java software, XML API, Java API, XML parser, 
+            DOM, Document Object Model, SAX, XML Library, XPath, 
+            Java 2 Collections
+        ">
+<META NAME="Description" CONTENT="DOM4J is an Open Source XML framework 
+            for the Java Platform that combines the best of DOM and SAX 
+            together with integrated  XPath and Java 2 Collections support
+        ">
+<META NAME="Copyright" CONTENT="(c) 2001 MetaStuff Ltd.">
+<title>Jaxen: Java XPath Engine</title>
+<link href="default.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top">
+<links>
+    
+<table width="100%">
+      
+<tr>
+        
+<td align="left" valign="center">
+          <a href="index.html"><img src="style/images/logo.gif" border="0" alt="jaxen"></a>
+        </td>
+        <td>
+<br>
+</td>
+        <td align="right" valign="center">
+          <font size="2">
+            <a href="faq.html">FAQ</a> 
+            | <a href="apidocs/index.html">JavaDoc</a> 
+            | <a href="download.html">download</a>
+            | <a href="status.html">status</a> 
+            | <a href="http://sourceforge.net/projects/jaxen/">project page</a>
+          </font>
+        </td>
+      
+</tr>
+    
+</table>
+  
+</links>
+<hr>
+</td>
+</tr>
+<tr>
+<td>
+<h1>Jaxen: Java XPath Engine</h1>
+</td>
+</tr>
+<tr>
+<td>
+<header>
+      
+<p>
+      
+<i>Jaxen</i> is a fast Java engine for <a href="http://www.w3.org/TR/xpath">XPath 1.0</a>
+      that works on all XML object models. The following models are currently supported out of the box
+      <table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td height="5" colspan="2"></td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left"><a href="http://www.w3.org/DOM/">DOM</a></td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left"><a href="http://dom4j.org">dom4j</a></td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left"><a href="http://www.themindelectric.com/products/xml/xml.html">Electric XML</a></td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left"><a href="http://jdom.org">JDOM</a></td>
+</tr>
+      
+</table>
+      
+<br>
+</p>
+    
+</header>
+<small><a href="#News">News</a>
+<br>
+</small><small><a href="#Getting%20Started">Getting Started</a>
+<br>
+</small><small><a href="#Mailing%20Lists">Mailing Lists</a>
+<br>
+</small>
+<br>
+<a name="News">
+<h2>News</h2>
+</a>
+<blockquote>
+      
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td height="5" colspan="2"></td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Check out these new <a href="http://dom4j.org/benchmarks/xpath/index.html">Performance Benchmarks</a> comparing dom4j and Jaxen against Xerces and Xalan. 
+      </td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Sun chooses Jaxen for the XPath engine 
+        <a href="http://jakarta.apache.org/taglibs/doc/standard-doc/intro.html">JSTL</a> and 
+        <a href="http://java.sun.com/webservices/webservicespack.html">Web Services pack</a>
+        which means Jaxen will be included in the J2EE reference implementation!
+      </td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">
+        Since the reference implementation of 
+        <a href="http://developer.java.sun.com/developer/earlyAccess/xml/jaxm/">JAXM</a>
+        is based on <a href="http://dom4j.org">dom4j</a> and Jaxen that means you can use
+        Jaxen to query SOAP messages on the Java platform too!
+      </td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Check out Elliotte Rusty Harolds book chapter on XPath and 
+        <a href="http://cafeconleche.org/books/xmljava/chapters/ch16s06.html">Jaxen</a>
+      </td>
+</tr>
+      
+<tr>
+<td valign="top" align="left"><img alt="*" src="style/images/blueball.gif"></td><td valign="top" align="left">Alex Chaffee wrote 
+        <a href="http://www.purpletech.com/xpe/">XPath Explorer</a> 
+        to help visualize results of XPath expressions.
+      </td>
+</tr>
+      
+</table>
+    
+</blockquote>
+<a name="Getting%20Started">
+<h2>Getting Started</h2>
+</a>
+<blockquote>
+      
+<p>You can download the current 1.0-FCS release 
+        or a nightly build via the <a href="download.html">download page</a>.<br>
+</p>
+
+      
+<p>You could try browsing the
+        <a href="faq.html">FAQ</a> or the online 
+        <a href="apidocs/index.html">JavaDoc</a>.
+      <br>
+</p>      
+      
+      
+<p>Contributors are welcome to join this project. 
+        Once you've browsed the <a href="faq.html">FAQ</a> you could try
+        sending an email to one of the mailing lists below or check out the
+        <a href="http://sourceforge.net/projects/jaxen/">project page</a>.<br>
+</p>
+
+    
+</blockquote>
+<a name="Mailing%20Lists">
+<h2>Mailing Lists</h2>
+</a>
+<blockquote>
+      
+<p>There is a
+        <a href="http://lists.sourceforge.net/lists/listinfo/jaxen-interest">
+          jaxen-interest
+        </a> 
+        email list where you can share ideas and experiences, ask for help, 
+        give us feedback or discuss your requirements.
+      <br>
+</p>
+
+      
+<p>You can also browse the <a href="http://www.mail-archive.com/jaxen-interest%40lists.sourceforge.net/">archives</a>.
+      <br>
+</p>
+    
+</blockquote>
+<br>
+<hr>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<links>
+    
+<table width="100%">
+      
+<tr>
+        
+<td align="left" valign="center">
+          <a href="index.html"><img src="style/images/logo.gif" border="0" alt="jaxen"></a>
+        </td>
+        <td>
+<br>
+</td>
+        <td align="right" valign="center">
+          <font size="2">
+            <a href="faq.html">FAQ</a> 
+            | <a href="apidocs/index.html">JavaDoc</a> 
+            | <a href="download.html">download</a>
+            | <a href="status.html">status</a> 
+            | <a href="http://sourceforge.net/projects/jaxen/">project page</a>
+          </font>
+        </td>
+      
+</tr>
+    
+</table>
+  
+</links>
+<hr>
+</td>
+</tr>
+<tr>
+<td align="center"><small>
+<notice>
+    Copyright 2001 (C) bob mcwhirter &amp; James Strachan. All rights reserved. Hosted by SourceForge <br>
+    
+<table cellspacing="10" align="Center" valign="Center">
+    
+<tr>
+    
+<td valign="Center">
+    <a href="http://sourceforge.net/"><img src="http://sourceforge.net/sflogo.php?group_id=31477" width="88" height="31" border="0" alt="SourceForge Logo"></a>
+    </td>
+    
+</tr>
+    
+</table>
+  
+</notice>
+<br>&nbsp;<br>
+</small></td>
+</tr>
+</table>
+</body>
+</html>

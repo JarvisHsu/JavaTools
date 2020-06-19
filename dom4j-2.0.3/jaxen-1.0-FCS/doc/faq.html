@@ -1,0 +1,296 @@
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type">
+<META NAME="Keywords" CONTENT="DOM4J, XML, Java, XML and Java, Open Source, 
+            XML software, Java software, XML API, Java API, XML parser, 
+            DOM, Document Object Model, SAX, XML Library, XPath, 
+            Java 2 Collections
+        ">
+<META NAME="Description" CONTENT="DOM4J is an Open Source XML framework 
+            for the Java Platform that combines the best of DOM and SAX 
+            together with integrated  XPath and Java 2 Collections support
+        ">
+<META NAME="Copyright" CONTENT="(c) 2001 MetaStuff Ltd.">
+<title>Frequently Asked Questions</title>
+<link href="default.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top">
+<links>
+    
+<table width="100%">
+      
+<tr>
+        
+<td align="left" valign="center">
+          <a href="index.html"><img src="style/images/logo.gif" border="0" alt="jaxen"></a>
+        </td>
+        <td>
+<br>
+</td>
+        <td align="right" valign="center">
+          <font size="2">
+            <a href="faq.html">FAQ</a> 
+            | <a href="apidocs/index.html">JavaDoc</a> 
+            | <a href="download.html">download</a>
+            | <a href="status.html">status</a> 
+            | <a href="http://sourceforge.net/projects/jaxen/">project page</a>
+          </font>
+        </td>
+      
+</tr>
+    
+</table>
+  
+</links>
+<hr>
+</td>
+</tr>
+<tr>
+<td>
+<h1>Frequently Asked Questions</h1>
+</td>
+</tr>
+<tr>
+<td><small><a href="#What%20is%20Jaxen?">What is Jaxen?</a>
+<br>
+</small><small><a href="#What%20is%20the%20Jaxen%20license?">What is the Jaxen license?</a>
+<br>
+</small><small><a href="#Why%20is%20Jaxen%20useful?">Why is Jaxen useful?</a>
+<br>
+</small><small><a href="#Why%20is%20Jaxen%20better%20than%20<some%20other%20xpath%20technology>">Why is Jaxen better than &lt;some other xpath technology&gt;</a>
+<br>
+</small><small><a href="#What%20are%20some%20related%20technologies?">What are some related technologies?</a>
+<br>
+</small><small><a href="#How%20do%20I%20support%20a%20different%20object%20model?">How do I support a different object model?</a>
+<br>
+</small><small><a href="#Is%20Jaxen%20only%20good%20for%20XPath%20evaluation?">Is Jaxen only good for XPath evaluation?</a>
+<br>
+</small><small><a href="#Who%20uses%20Jaxen?">Who uses Jaxen?</a>
+<br>
+</small>
+<br>
+<a name="What%20is%20Jaxen?">
+<h2>What is Jaxen?</h2>
+</a>
+<blockquote>
+      
+<p>
+      The <i>Jaxen</i> project is a Java XPath Engine.
+      <i>Jaxen</i> is a universal object model walker, capable of evaluating
+      XPath expressions across multiple models.  Currently supported
+      are <a href="http://dom4j.org">dom4j</a> and <a href="http://jdom.org">JDOM</a>.
+      <br>
+</p>
+    
+</blockquote>
+<a name="What%20is%20the%20Jaxen%20license?">
+<h2>What is the Jaxen license?</h2>
+</a>
+<blockquote>
+      
+<p>We use an Apache-style open source license which is one of the least
+        restrictive licenses around, you can use <i>Jaxen</i> to create new products
+        without them having to be open source.
+      <br>
+</p>
+    
+</blockquote>
+<a name="Why%20is%20Jaxen%20useful?">
+<h2>Why is Jaxen useful?</h2>
+</a>
+<blockquote>
+      
+<p>
+      After implementing an XPath engine for both <a href="http://dom4j.org">dom4j</a> and
+      <a href="http://jdom.org">JDOM</a>, and attempting to keep them both in sync, it was
+      decided that factoring out the commonality would be a Good Thing.  Thus, <i>Jaxen</i>
+      provides a single point for XPath expression evaluation, regardless of the target
+      object model, whether its <b>dom4j</b>, <b>JDOM</b>, <b>DOM</b>, <b>JavaBeans</b>,
+      or whatnot.
+      <br>
+</p>
+    
+</blockquote>
+<a name="Why%20is%20Jaxen%20better%20than%20<some%20other%20xpath%20technology>">
+<h2>Why is Jaxen better than &lt;some other xpath technology&gt;</h2>
+</a>
+<blockquote>
+      
+<p>
+      
+<i>Jaxen</i> is better than <b>werken.xpath</b> specifically because it better
+      handles XPath expressions, and syntax error reporting.  Additionally, since
+      Jaxen is a unified code-base, developer effort isn't split between maintaining
+      the <b>dom4j</b> version and the <b>JDOM</b> version.  More hands working on
+      the same project reduces bug count.
+      <br>
+</p>
+
+      
+<p>
+      
+<i>Jaxen</i> may be perceived to be better than other XPath technologies since it
+      provides a single cohesive API for evaluating XPaths against multiple object
+      models.  Learn the <i>Jaxen</i> API, and apply it to <b>dom4j</b>, <b>JDOM</b>,
+      <b>EXML</b> or <b>DOM</b> trees in exactly the same way.
+      <br>
+</p>
+
+      
+<p>
+      Also, since <i>Jaxen</i> works against an adaptor which provides InfoSet access
+      to arbitrary object models, it should be possible to build even larger
+      tools in terms of <i>Jaxen</i>, to work with multiple models.  For example, an
+      <b>XQL</b> engine could be developed, which would automagically work with
+      all models already supported by <i>Jaxen</i>.
+      <br>
+</p>
+    
+</blockquote>
+<a name="What%20are%20some%20related%20technologies?">
+<h2>What are some related technologies?</h2>
+</a>
+<blockquote>
+      
+<p>
+      
+<i>Jaxen</i> itself is based upon <a href="http://saxpath.org/">SAXPath</a>, which is
+      an event-based model for parsing XPath expressions.
+      <br>
+</p>
+
+      
+<p>
+      
+<i>Jaxen</i> currently has navigators defined for <a href="http://dom4j.org/">dom4j</a>
+      and <a href="http://jdom.org/">JDOM</a>, two popular and convenient object models
+      for representing XML documents.  Additionally, <a href="http://themindelectric.com/">The Mind Electric's</a>
+      EXML is supported, providing better XPath support within the GLUE platform.
+      Of course, <a href="http://w3c.org/">W3C DOM</a> is also supported.
+      <br>
+</p>
+    
+</blockquote>
+<a name="How%20do%20I%20support%20a%20different%20object%20model?">
+<h2>How do I support a different object model?</h2>
+</a>
+<blockquote>
+      
+<p>
+      The only thing required is an implementation of the interface 
+      <code>org.jaxen.Navigator</code>.  Not all of the interface is required,
+      and a default implementation, in the form of <code>org.jaxen.DefaultNavigator</code>
+      is also provided.
+      <br>
+</p>
+
+      
+<p>
+      Since many of the XPath axes can be defined in terms of each other (for example,
+      the <code>ancestor</code> axis is merely a the <code>parent</code> recursively
+      applied), only a few low-level axis iterators are required to initially get
+      started.  Of course, you may implement them directly, instead of relying upon
+      <i>Jaxen</i>'s composition ability.
+      <br>
+</p>
+
+    
+</blockquote>
+<a name="Is%20Jaxen%20only%20good%20for%20XPath%20evaluation?">
+<h2>Is Jaxen only good for XPath evaluation?</h2>
+</a>
+<blockquote>
+      
+<p>
+      No. 
+      <br>
+</p>
+
+      
+<p>
+      The <i>DocumentNavigators</i> provided with <i>Jaxen</i> would be used
+      by themselves, without the XPath evaluation engine, to provide univeral
+      access to many object models for other technologies.
+      <br>
+</p>
+    
+</blockquote>
+<a name="Who%20uses%20Jaxen?">
+<h2>Who uses Jaxen?</h2>
+</a>
+<blockquote>
+      
+<p>
+      
+<i>Jaxen</i> has been embedded directly into <b>dom4j</b> to provide
+      easy XPath evaluation directly from your documents.  Additionally, it's
+      being integrated into David Megginson's 
+      <a href="http://sourceforge.net/projects/newsml-toolkit/">NewsML Framework</a>.
+      <br>
+</p>
+    
+</blockquote>
+<br>
+<hr>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<links>
+    
+<table width="100%">
+      
+<tr>
+        
+<td align="left" valign="center">
+          <a href="index.html"><img src="style/images/logo.gif" border="0" alt="jaxen"></a>
+        </td>
+        <td>
+<br>
+</td>
+        <td align="right" valign="center">
+          <font size="2">
+            <a href="faq.html">FAQ</a> 
+            | <a href="apidocs/index.html">JavaDoc</a> 
+            | <a href="download.html">download</a>
+            | <a href="status.html">status</a> 
+            | <a href="http://sourceforge.net/projects/jaxen/">project page</a>
+          </font>
+        </td>
+      
+</tr>
+    
+</table>
+  
+</links>
+<hr>
+</td>
+</tr>
+<tr>
+<td align="center"><small>
+<notice>
+    Copyright 2001 (C) bob mcwhirter &amp; James Strachan. All rights reserved. Hosted by SourceForge <br>
+    
+<table cellspacing="10" align="Center" valign="Center">
+    
+<tr>
+    
+<td valign="Center">
+    <a href="http://sourceforge.net/"><img src="http://sourceforge.net/sflogo.php?group_id=31477" width="88" height="31" border="0" alt="SourceForge Logo"></a>
+    </td>
+    
+</tr>
+    
+</table>
+  
+</notice>
+<br>&nbsp;<br>
+</small></td>
+</tr>
+</table>
+</body>
+</html>
